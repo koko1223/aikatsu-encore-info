@@ -1,0 +1,649 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="color-scheme" content="light dark"/>
+<link rel="icon" href="data:,"/>
+<title>アイカツ！アンコール イベント・販売・配布情報</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#fff9f6; --surface:#ffffff; --surface2:#fff0ec; --ink:#2b1a22; --muted:#6f5a64; --line:#eedde3;
+--accent:#d81b60; --accent-ink:#fff; --teal:#007a87; --amber:#9a6200; --amber-bg:#fff3d6; --red:#b3261e; --red-bg:#fdecea;
+--green:#1b7a3d; --green-bg:#e6f4ea; --gray-bg:#f1e9ec; --shadow:0 6px 24px rgba(90,20,50,.08);
+}
+@media (prefers-color-scheme: dark){
+:root{ --bg:#171116; --surface:#241a21; --surface2:#2e202a; --ink:#f7eef2; --muted:#c9aebc; --line:#45313d;
+--accent:#ff6fa5; --accent-ink:#241019; --teal:#4fd1dc; --amber:#ffcf6b; --amber-bg:#3a2f14; --red:#ff9d97; --red-bg:#3d1f1c;
+--green:#7bd88f; --green-bg:#1e3524; --gray-bg:#33262e; --shadow:0 6px 24px rgba(0,0,0,.35);}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans JP",system-ui,sans-serif;line-height:1.75;font-size:15.5px}
+a{color:var(--teal);text-underline-offset:3px;word-break:break-all}
+h1,h2,h3{font-family:"M PLUS Rounded 1c","Noto Sans JP",sans-serif;line-height:1.35;margin:0}
+.wrap{max-width:960px;margin:0 auto;padding:20px 16px 64px}
+.lead{font-size:15px;color:var(--muted);margin:10px 0 0}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0}
+.pill{font-size:12.5px;font-weight:700;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:4px 12px}
+.pill strong{color:var(--accent)}
+h1{font-size:clamp(26px,5.5vw,40px);font-weight:800;letter-spacing:.01em}
+h1.star{color:var(--accent)}
+.subtitle{font-weight:700;font-size:16px;margin-top:6px}
+/* alert */
+.alert{margin:22px 0 0;background:var(--amber-bg);border:1.5px solid var(--amber);border-radius:14px;padding:16px 18px}
+.alert h2{font-size:17px;color:var(--amber);margin-bottom:8px}
+.alert ul{margin:0;padding-left:20px}
+.alert li{margin:5px 0}
+.alert li strong{color:var(--ink)}
+/* quick facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:18px 0 0}
+.fact{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow)}
+.fact.k{font-size:12px;font-weight:700;color:var(--muted);letter-spacing:.04em}
+.fact.v{font-family:"M PLUS Rounded 1c",sans-serif;font-weight:800;font-size:19px;margin-top:2px}
+.fact.n{font-size:12.5px;color:var(--muted)}
+/* nav tabs */
+.tabs{position:sticky;top:0;z-index:20;background:var(--bg);padding:14px 0 10px;margin-top:8px}
+.tabrow{display:flex;gap:8px;flex-wrap:wrap}
+.tabbtn{appearance:none;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);font:inherit;font-weight:700;font-size:14.5px;border-radius:999px;padding:8px 18px;cursor:pointer}
+.tabbtn[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.filters{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;align-items:center}
+.filters span{font-size:12.5px;color:var(--muted);font-weight:700;margin-right:2px}
+.fbtn{appearance:none;border:1px solid var(--line);background:transparent;color:var(--muted);font:inherit;font-size:12.5px;font-weight:700;border-radius:999px;padding:3px 12px;cursor:pointer}
+.fbtn[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+section.panel{display:none}
+section.panel.active{display:block}
+.sec-head{margin:28px 0 6px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.sec-head h2{font-size:23px;font-weight:800}
+.sec-head p{margin:0;color:var(--muted);font-size:13.5px}
+/* cards */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;margin:14px 0;box-shadow:var(--shadow)}
+.card h3{font-size:17.5px;font-weight:800;margin:6px 0 8px}
+.card p{margin:6px 0}
+.card ul{margin:6px 0;padding-left:20px}
+.card li{margin:4px 0}
+.badges{display:flex;gap:6px;flex-wrap:wrap}
+.badge{font-size:11.5px;font-weight:800;border-radius:6px;padding:2px 9px;letter-spacing:.02em}
+.b-live{background:var(--green-bg);color:var(--green)}
+.b-future{background:#e3ecfd;color:#2456a6}
+@media (prefers-color-scheme: dark){.b-future{background:#23334f;color:#9dbcf5}}
+.b-end{background:var(--gray-bg);color:var(--muted)}
+.b-tbd{background:var(--amber-bg);color:var(--amber)}
+.b-cancel{background:var(--red-bg);color:var(--red)}
+.b-src{background:var(--surface2);color:var(--accent);border:1px solid var(--line)}
+.src{font-size:12.5px;color:var(--muted);margin-top:10px;border-top:1px dashed var(--line);padding-top:8px}
+.src a{font-size:12.5px}
+.note{background:var(--surface2);border-radius:10px;padding:10px 14px;font-size:13.5px;margin:10px 0}
+.warnbox{background:var(--red-bg);border-radius:10px;padding:12px 14px;font-size:14px;margin:10px 0}
+/* tables */
+.tblwrap{margin:12px 0;overflow:hidden;border:1px solid var(--line);border-radius:12px}
+table{width:100%;border-collapse:collapse;background:var(--surface);font-size:14px}
+th,td{padding:10px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+th{background:var(--surface2);font-size:12.5px;letter-spacing:.03em;white-space:nowrap}
+tr:last-child td{border-bottom:none}
+td.price{font-weight:700;white-space:nowrap}
+@media (max-width:640px){
+table,thead,tbody,tr,td{display:block;width:100%}
+thead{display:none}
+tr{border-bottom:2px solid var(--line);padding:6px 0}
+tr:last-child{border-bottom:none}
+td{border-bottom:none;padding:4px 12px}
+td.price{white-space:normal}
+td::before{content:attr(data-l);display:block;font-size:11px;font-weight:700;color:var(--muted)}
+td:first-child::before{content:none}
+}
+/* timeline */
+.tl{list-style:none;margin:14px 0;padding:0 0 0 18px;border-left:3px solid var(--line)}
+.tl li{position:relative;padding:0 0 18px 14px}
+.tl li::before{content:"";position:absolute;left:-25.5px;top:8px;width:12px;height:12px;border-radius:50%;background:var(--accent);border:2px solid var(--bg)}
+.tl.d{font-family:"M PLUS Rounded 1c",sans-serif;font-weight:800;font-size:14px}
+.tl p{margin:2px 0;font-size:14px}
+/* calendar strip */
+.cal{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:14px 0}
+.calitem{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:10px;padding:10px 12px}
+.calitem.d{font-family:"M PLUS Rounded 1c",sans-serif;font-weight:800;font-size:15px}
+.calitem.t{font-size:13px;margin-top:2px}
+.calitem.past{border-top-color:var(--muted);opacity:.75}
+/* unknown */
+.unknown{background:var(--surface);border:1.5px dashed var(--muted);border-radius:14px;padding:16px 18px;margin:14px 0}
+.unknown h3{font-size:16px;margin-bottom:6px}
+.unknown ul{margin:0;padding-left:20px;font-size:14px}
+.disclaimer{margin:36px 0 0;background:var(--surface);border:1.5px solid var(--line);border-radius:14px;padding:16px 18px;font-size:13.5px}
+.disclaimer h2{font-size:16px;margin-bottom:8px}
+.disclaimer p{margin:6px 0}
+.disclaimer ul{margin:6px 0;padding-left:20px}
+.disclaimer li{margin:4px 0}
+footer{margin-top:40px;border-top:1px solid var(--line);padding-top:16px;font-size:12.5px;color:var(--muted)}
+footer h2{font-size:15px;color:var(--ink);margin-bottom:8px}
+footer ul{padding-left:18px;margin:0}
+footer li{margin:3px 0}
+/* monitor + shops */
+.monitor{margin:18px 0 0;background:var(--surface);border:1.5px solid var(--teal);border-radius:14px;padding:16px 18px;box-shadow:var(--shadow)}
+.monitor h2{font-size:17px;color:var(--teal);margin-bottom:8px}
+.monitor p{margin:6px 0;font-size:14px}
+.monitor ul{margin:6px 0;padding-left:20px;font-size:14px}
+.monitor li{margin:4px 0}
+.shopbox{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;margin:14px 0;box-shadow:var(--shadow)}
+.shopbox h3{font-size:17.5px;font-weight:800;margin:6px 0 8px}
+.shopbox p{margin:6px 0}
+.shop-tools{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:14px 0 4px}
+.shop-tools input[type="search"]{flex:1 1 220px;font:inherit;font-size:14.5px;padding:9px 14px;border:1.5px solid var(--line);border-radius:999px;background:var(--surface);color:var(--ink)}
+.prefbtn{appearance:none;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);font:inherit;font-weight:700;font-size:13.5px;border-radius:999px;padding:7px 16px;cursor:pointer}
+.prefbtn[aria-pressed="true"]{background:var(--teal);border-color:var(--teal);color:#fff}
+@media (prefers-color-scheme: dark){.prefbtn[aria-pressed="true"]{color:#0b2226}}
+.shop-count{font-size:13px;color:var(--muted);font-weight:700}
+tr.shop-hidden{display:none!important}
+@media (max-width:640px){tr.shop-hidden{display:none!important}}
+td .maplink{font-size:12.5px;font-weight:700;white-space:nowrap}
+.hidden-by-filter{display:none!important}
+.empty{display:none;background:var(--surface);border:1px dashed var(--line);border-radius:12px;padding:18px;text-align:center;color:var(--muted);font-size:14px;margin:14px 0}
+.empty.show{display:block}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>アイカツ<span class="star">！</span>アンコール<br>イベント・販売・配布情報</h1>
+<p class="subtitle">データカードダス『アイカツ！アンコール』（バンダイ）まとめ</p>
+<p class="lead">2026年10月8日(木)に全国のアミューズメント施設などで順次稼働開始したアーケードカードゲームの、イベント・販売（在庫・関連商品）・配布（キャンペーン・特典カード）情報を、公式発表を優先して整理しました。TVアニメ『アイカツ！』アンコール放送は10月9日(金)より毎週金曜18:25〜テレ東系で放送中です。</p>
+<div class="meta">
+<span class="pill">調査時点：<strong>2026年11月5日</strong></span>
+<span class="pill">出典の区分（公式／メディア／SNS）を各項目に表示</span>
+<span class="pill">1弾 登場アイドル：総勢11名</span>
+<span class="pill">稼働場所 確認：<strong>2026年11月5日</strong>（広島13店・山口4店）</span>
+</div>
+
+<div class="alert" role="note">
+<h2>⚠ まず押さえたい4つの訂正・注意点</h2>
+<ul>
+<li><strong>ゲーム内イベント「きかんげんていライブ！」は「終了」ではありません。</strong>当初は10月15日〜11月4日と発表されましたが、公式サイトが後に「開催期間：未定（現状の稼働状況を鑑み、開催日程を未定）」へ変更。11月5日時点でも新日程の発表はなく、<strong>日程未定・続報待ち</strong>が正確な状態です。10月8日時点のメディア記事は当初日程のままなのでご注意ください。</li>
+<li><strong>カード在庫は「解消した」とは公式に発表されていません。</strong>公式は追加出荷・増産中（10月9日）、追加生産を進めている段階（11月2日公式X）で、店舗ごとに再入荷→再開→再完売が繰り返されています。</li>
+<li><strong>購入制限は全国一律ではありません。</strong>料金（1プレイ100円／カード1枚）は公式仕様ですが、追加購入の上限や交代制は店舗ごとに違います。</li>
+<li><strong>第2弾は「稼働決定」までが公式発表です。</strong>開始日・内容は後日公開で、11月5日時点では未発表です。</li>
+</ul>
+</div>
+
+<div class="facts">
+<div class="fact"><div class="k">一番くじちょこっと 発売日</div><div class="v">2026年12月10日(木)</div><div class="n">1回550円（税込）</div></div>
+<div class="fact"><div class="k">プレゼントキャンペーン 第4弾</div><div class="v">11月13日(金)〜</div><div class="n">EP-030 スターライト学園ブーツ配布開始</div></div>
+<div class="fact"><div class="k">たまごっちコラボ特典 第1弾</div><div class="v">11月21日(土)〜</div><div class="n">対象デバイス購入者に先着配布</div></div>
+<div class="fact"><div class="k">アイカツフォン アンコール</div><div class="v">11月28日(土)</div><div class="n">13,200円（税込）・カード3枚付き</div></div>
+<div class="fact"><div class="k">稼働場所（公式店舗検索・11月5日確認）</div><div class="v">広島13店・山口4店</div><div class="n">合計17店舗・26台が「稼働中」表示。下の「稼働場所」タブに全店掲載</div></div>
+</div>
+
+<div class="monitor" role="note">
+<h2>🔍 監視と更新について（ご質問への回答）</h2>
+<p><strong>見張りはできます。</strong>公式サイトのNEWSと、公式「取扱店舗」検索の広島県・山口県の結果を定期的に確認し、変化があったらこのページの内容を差し替えてお知らせします。何も変わっていないときは静かにしています。</p>
+<ul>
+<li><strong>今回の確認（2026年11月5日）：</strong>公式NEWSの最新は11月2日分（2弾稼働決定／たまごっちコラボ／プロモーションカード更新）のままで、11月3日以降の新しい発表はありませんでした。「きかんげんていライブ！」の新日程や在庫解消の発表も、まだ出ていません。</li>
+<li><strong>今回追加したもの：</strong>公式店舗検索で確認した広島県13店舗・山口県4店舗（店名・住所・稼働台数・公式の最終更新表示）を、下の「稼働場所（広島・山口）」タブに全店載せました。</li>
+<li><strong>正直な注意点：</strong>このページ自体は開いた瞬間に自動で書き換わる仕組みではなく、確認のたびに中身を差し替える形です。そのため、店舗へ行く直前の一番新しい稼働台数は、タブ内の公式店舗検索へのリンクでその場で確認できます（公式も「台数・弾数は更新時点のもので、カード切れや故障で止まっていても過去の表示のままの場合がある」と注意しています）。</li>
+</ul>
+</div>
+
+<div class="tabs">
+<div class="tabrow" role="tablist" aria-label="分野">
+<button class="tabbtn" role="tab" aria-selected="true" data-tab="events">🎤 イベント</button>
+<button class="tabbtn" role="tab" aria-selected="false" data-tab="sales">🛒 販売・在庫</button>
+<button class="tabbtn" role="tab" aria-selected="false" data-tab="dist">🎁 配布・特典</button>
+<button class="tabbtn" role="tab" aria-selected="false" data-tab="shops">📍 稼働場所（広島・山口）</button>
+</div>
+<div class="filters" aria-label="状態で絞り込み">
+<span>状態で絞る：</span>
+<button class="fbtn" data-filter="all" aria-pressed="true">すべて</button>
+<button class="fbtn" data-filter="live" aria-pressed="false">開催中・実施中</button>
+<button class="fbtn" data-filter="future" aria-pressed="false">今後</button>
+<button class="fbtn" data-filter="tbd" aria-pressed="false">未定</button>
+<button class="fbtn" data-filter="end" aria-pressed="false">終了・中止</button>
+</div>
+</div>
+
+<!-- ============ EVENTS ============ -->
+<section class="panel active" id="panel-events">
+<div class="sec-head"><h2>イベント情報</h2><p>ゲーム内イベント／リアルイベント／今後の展開</p></div>
+
+<article class="card" data-status="tbd">
+<div class="badges"><span class="badge b-tbd">日程未定</span><span class="badge b-src">公式</span></div>
+<h3>「きかんげんていライブ！」内イベント『新登場アイドルとアイカツ！』</h3>
+<div class="warnbox"><strong>当初の日程（2026年10月15日〜11月4日）は撤回されています。</strong>公式「1弾特集」（10月14日版）で開催期間は「未定」に変更され、「※現状の稼働状況を鑑み、開催日程を未定とさせていただいております」と明記。11月5日時点の公式NEWS（最新11月2日）にも新しい日程の発表はありません。</div>
+<p><strong>当初発表の内容：</strong>期間限定イベント「きかんげんていライブ！」を最後までクリアすると、データカードダスシリーズ初登場の『アイカツアカデミー！』の真未夢メエ・和央パリン・凛堂たいむが「じゆうにアイカツ！モード」でプレイ可能になる、とされていました（2026年10月8日 バンダイのプレスリリース）。</p>
+<p><strong>内容・報酬・参加条件（公式「ゲームモードのしょうかい」）：</strong>期間限定のイベントモード。イベントステージで遊ぶと新登場アイドルに出会え、限定のマイキャラパーツ、ポーズをゲットできます。<strong>アイカツパスを使用せずにプレイした場合はアイドルやプレゼントは獲得できません</strong>（実質、アイカツパス／デジタルアイカツパスが参加・報酬獲得の条件）。イベントのランキングはアイカツパス使用で自動参加（公式FAQ）。</p>
+<p class="src">出典：<a href="https://prtimes.jp/main/html/rd/p/000000208.000035829.html" target="_blank" rel="noopener">バンダイ プレスリリース（PR TIMES）</a>／<a href="https://dcd.aikatsu.com/encore/news/001.php" target="_blank" rel="noopener">公式 1弾特集</a>／<a href="https://dcd.aikatsu.com/encore/game/mode.php" target="_blank" rel="noopener">ゲームモードのしょうかい</a>／<a href="https://dcd.aikatsu.com/encore/faq/" target="_blank" rel="noopener">公式FAQ</a></p>
+</article>
+
+<article class="card" data-status="live">
+<div class="badges"><span class="badge b-live">開催中</span><span class="badge b-src">公式</span></div>
+<h3>1弾 アイカツ！スタンプ</h3>
+<p><strong>開催期間：</strong>2026年10月8日(木)〜<strong>1弾稼働終了まで</strong></p>
+<p><strong>内容・報酬：</strong>アイカツパスを使って遊ぶと1プレイごとにスタンプをゲット。スタンプを最後まで集めると限定のマイキャラパーツがもらえます。</p>
+<p class="src">出典（2026年10月22日告知）：<a href="https://dcd.aikatsu.com/encore/news/004.php" target="_blank" rel="noopener">公式NEWS 004</a></p>
+</article>
+
+<article class="card" data-status="live">
+<div class="badges"><span class="badge b-live">開催中</span><span class="badge b-src">公式</span></div>
+<h3>ハロウィン アイカツ！スタンプ</h3>
+<p><strong>開催期間：</strong>2026年10月24日(土)〜<strong>1弾稼働終了まで</strong></p>
+<p><strong>内容・報酬：</strong>スタンプを最後まで集めると限定マイキャラパーツや、ハロウィンアイカツ！スタンプverの「ねこ」ポーズをゲットできます。</p>
+<p class="src">出典（2026年10月22日告知）：<a href="https://dcd.aikatsu.com/encore/news/004.php" target="_blank" rel="noopener">公式NEWS 004</a></p>
+</article>
+
+<article class="card" data-status="live">
+<div class="badges"><span class="badge b-live">公開中</span><span class="badge b-src">公式</span></div>
+<h3>ランキング公開</h3>
+<p>公式NEWSで2026年10月9日に「1弾 ハイスコアランキング」「通年ランキング」を公開。詳細は公式NEWS一覧で確認できます。</p>
+<p class="src">出典：<a href="https://dcd.aikatsu.com/encore/news/" target="_blank" rel="noopener">公式NEWS一覧</a></p>
+</article>
+
+<article class="card" data-status="future">
+<div class="badges"><span class="badge b-future">決定・詳細後日</span><span class="badge b-src">公式</span></div>
+<h3>データカードダス『アイカツ！アンコール 2弾』稼働決定</h3>
+<p>2026年11月2日に公式サイトで「2弾稼働が決定」を発表。登場するアイドルやカード、その他詳しい情報は<strong>後日公開予定</strong>で、<strong>稼働開始日は11月5日時点で未発表</strong>です。</p>
+<p>2弾では<strong>「たまごっちパラダイス」とのコラボレーション</strong>も決定しています（配布の詳細は「配布・特典」タブ）。</p>
+<p>公式X（11月2日）でも同様に「詳細は今後本アカウント、公式HPにて順次公開予定」「現在稼働中の1弾についてもカードの追加生産を進めている」と発信されています。</p>
+<p class="src">出典：<a href="https://dcd.aikatsu.com/encore/news/011.php" target="_blank" rel="noopener">公式NEWS 011（2弾稼働決定）</a>／<a href="https://dcd.aikatsu.com/encore/news/010.php" target="_blank" rel="noopener">公式NEWS 010（たまごっちコラボ）</a>／<a href="https://buzzweet.com/photo-tweet/5/" target="_blank" rel="noopener">公式X投稿の転載まとめ</a></p>
+</article>
+
+<article class="card" data-status="live">
+<div class="badges"><span class="badge b-live">稼働中</span><span class="badge b-src">公式</span></div>
+<h3>アイカツ！オフィシャルストアで稼働開始</h3>
+<p>2026年10月8日(木)より「アイカツ！オフィシャルストア」全店（秋葉原・京都・名古屋）で『アイカツ！アンコール』が稼働開始。これに伴い旧作DCD『アイカツ！』『アイカツオンパレード！』の設置は2026年10月4日(日)閉店時間をもって<strong>終了</strong>しました。</p>
+<div class="note">11月5日時点で、稼働開始後に新たに発表された全国規模のリアル体験会・店頭イベントの公式告知は、公式NEWS一覧では確認できませんでした（店舗単位の待機列・稼働案内は各店ページ／Xで随時）。</div>
+<p class="src">出典：<a href="https://bandainamco-am.co.jp/official_shop/aikatsu/topics/2026091801.html" target="_blank" rel="noopener">バンダイナムコアミューズメント告知</a></p>
+</article>
+
+<article class="card" data-status="end">
+<div class="badges"><span class="badge b-end">終了</span><span class="badge b-cancel">一部中止</span><span class="badge b-src">公式（ちゃお／小学館）</span></div>
+<h3>「ちゃお ぎゅぎゅっとツアー2026」試遊・カード先行配布</h3>
+<p>『アイカツ！アンコール』の最新筐体で試遊でき、カードの先行配布も実施（来場者へのカードプレゼントの案内あり）。各コーナーの体験は中学生以下が対象でした。</p>
+<ul>
+<li><strong>開催済み（終了）：</strong>2026年7月19日(日) 愛媛県・イオンモール今治新都市／7月26日(日) 福岡県・イオンモール大牟田</li>
+<li><strong>中止：</strong>8月9日(日) 大阪府・イオンモール堺鉄砲町／8月16日(日) 愛知県・イオンモール常滑／8月23日(日) 宮城県・イオンモール名取。小学館が2026年7月31日に、イオンモール側からの開催中止要請を受けて中止と発表。</li>
+</ul>
+<p class="src">出典：<a href="https://ciao.shogakukan.co.jp/topics/204888/" target="_blank" rel="noopener">ちゃお公式</a>／<a href="https://www.shogakukan.co.jp/news/477546" target="_blank" rel="noopener">小学館 中止告知</a></p>
+</article>
+
+<article class="card" data-status="end">
+<div class="badges"><span class="badge b-end">終了</span><span class="badge b-src">公式（バンダイ）＋メディア</span></div>
+<h3>「TOKYOおもちゃショー2026」バンダイブース出展</h3>
+<p>稼働開始前に一足早く体験試遊ができ、今後発売予定の関連アイテムを展示。一般日（パブリックデー）2026年8月29日(土)・30日(日)には来場プレゼント「アイカツ！始めようセット」を1人1セット配布（なくなり次第終了）。ビジネスデーは8月27日・28日でした。</p>
+<p class="src">出典：<a href="https://www.bandai.co.jp/toyshow/" target="_blank" rel="noopener">バンダイ おもちゃショー特設</a>／<a href="https://gamebiz.jp/news/431830" target="_blank" rel="noopener">gamebiz</a></p>
+</article>
+
+<article class="card" data-status="end">
+<div class="badges"><span class="badge b-end">終了</span><span class="badge b-src">公式（プレミアムバンダイ案内）</span></div>
+<h3>オールアイカツ！ストリーミングアワー（アンコール放送連動）</h3>
+<p>2026年10月7日(水) 20:00〜21:30終了予定で配信。ライブビューイングをnamco TOKYO（東京都新宿区歌舞伎町1-29-1 東急歌舞伎町タワー3階）で実施、チケット無料（1ドリンク購入制・税込550円〜）。内容はアンコール放送記念のドレスブランド大投票、スペシャルステージなど。DCD筐体イベントではありませんが、放送連動のリアルイベントとして記載します。</p>
+<p class="src">出典：<a href="https://p-bandai.jp/contents/allaikatsu-streaming" target="_blank" rel="noopener">プレミアムバンダイ案内</a></p>
+</article>
+<div class="empty" data-empty>この状態に当てはまる項目は、このタブにはありません。</div>
+</section>
+
+<!-- ============ SALES ============ -->
+<section class="panel" id="panel-sales">
+<div class="sec-head"><h2>販売・在庫情報</h2><p>カード第1弾の在庫経緯／購入制限／関連商品</p></div>
+
+<article class="card" data-status="live">
+<div class="badges"><span class="badge b-live">基本仕様</span><span class="badge b-src">公式</span></div>
+<h3>カード（第1弾）の基本仕様</h3>
+<p>1プレイ<strong>100円</strong>でゲームがスタートし、カードを1枚ゲットできます。カードのみの購入も1枚100円。売場は全国の玩具店・百貨店・量販店の玩具売場、アミューズメント施設など。登場アイドルは1弾で総勢11名です。</p>
+<p class="src">出典：<a href="https://dcd.aikatsu.com/encore/faq/" target="_blank" rel="noopener">公式FAQ</a>／<a href="https://prtimes.jp/main/html/rd/p/000000208.000035829.html" target="_blank" rel="noopener">バンダイ プレスリリース</a></p>
+</article>
+
+<article class="card" data-status="live">
+<div class="badges"><span class="badge b-tbd">解消時期は未発表</span><span class="badge b-src">公式＋メディア＋SNS</span></div>
+<h3>在庫状況の経緯（10月8日〜11月4日）</h3>
+<ol class="tl">
+<li><span class="d">2026年10月8日（公式）</span><p>全国で順次稼働開始。各地で行列。</p></li>
+<li><span class="d">10月9日（メディア）</span><p>稼働2日目にして各地で「カード切れ」。池袋・新宿などの店舗では追加カードが来るまで「カード排出なし」で稼働する店舗や、「1プレイ交代」をお願いする店舗が出現。</p></li>
+<li><span class="d">10月9日（公式）</span><p><strong>公式告知：</strong>一部店舗でカード在庫切れによりプレイできない状況が発生し謝罪。「現在、追加出荷および増産を進めております」。個別店舗への問合せは控えるよう要請。</p></li>
+<li><span class="d">10月16日頃〜（SNS）</span><p>店舗単位で少量の再入荷・稼働再開が始まる一方、再開当日に再び完売・稼働停止となる店舗も。例：GiGO北岡崎は10月16日開店時より再開、GiGO名取は再開当日に在庫が無くなり停止（再入荷未定）、namcoイオンモール神戸南店は完売のため全台停止（再入荷未定）など。</p></li>
+<li><span class="d">11月2日（公式X）</span><p>1弾について「引き続き、多くの方に楽しんでいただけるようカードの追加生産を進めております」。</p></li>
+<li><span class="d">11月4日（公式・店舗）</span><p>namcoラゾーナ川崎店は待機列・プレイ規則を案内し稼働を継続している例。配布物の在庫表や物販（1ポケットカードファイル在庫あり）も更新されており、店舗によっては遊べる状態が続いています。</p></li>
+</ol>
+<div class="note"><strong>現在の状況まとめ（11月5日時点）：</strong>公式から「増産分が全国に行き渡った／在庫問題が解消した」という発表はありません。公式サイトには店舗ごとの稼働可否を確認できる「あそべるお店」検索があり、来店前の確認手段として公式が案内しています。店舗SNSでは「カード完売のため稼働停止」「再入荷・稼働再開し次第お知らせ」「次回入荷は未定」と告知されるのが通例です。</div>
+<p class="src">出典：<a href="https://dcd.aikatsu.com/encore/news/009.php" target="_blank" rel="noopener">公式 在庫状況について</a>／<a href="https://www.inside-games.jp/article/2026/10/09/189009.html" target="_blank" rel="noopener">インサイド（カード切れ報道）</a>／<a href="https://search.yahoo.co.jp/realtime/search/matome/4448c56306c943d2bbb52140df2a41c7-1792046700" target="_blank" rel="noopener">店舗公式Xの集約（Yahoo!リアルタイム検索まとめ）</a>／<a href="https://buzzweet.com/photo-tweet/5/" target="_blank" rel="noopener">公式X投稿の転載まとめ</a>／<a href="https://bandainamco-am.co.jp/game_center/loc/kawasaki/NEWS/aikatsu-encore_Qline.html" target="_blank" rel="noopener">namcoラゾーナ川崎店ページ</a></p>
+</article>
+
+<article class="card" data-status="live">
+<div class="badges"><span class="badge b-live">店舗ごとに異なる</span><span class="badge b-src">公式（店舗）＋メディア＋SNS</span></div>
+<h3>購入制限・プレイ制限（全国一律の公式制限はなし）</h3>
+<ul>
+<li><strong>namcoラゾーナ川崎店（公式店舗情報・2026年11月4日更新）：</strong>1プレイでカード1枚払い出し、追加購入は「+10枚」まで可能（最大11枚）。「カードを買う」モードを選んだ場合は続けて遊べず席を立って並び直し。1プレイ後は並び直して再プレイ可能。</li>
+<li><strong>メディア報道：</strong>稼働直後から「1プレイ交代」をお願いする店舗が出ています。</li>
+<li><strong>その他の店舗例（SNS情報）：</strong>カード購入時の連続コイン（追加購入）を5枚に制限（ハピピランド弘前店）、追加購入は5枚まで＋1プレイ交代制・カード購入のみは5枚まで（複数店舗）、「1プレイあたりトータル5枚払出設定」（モナコ川越店、次回入荷が11月頃のため絞っている旨）など。</li>
+</ul>
+<div class="note">枚数は店舗・入荷状況で変わるため、全国共通ルールとしては扱えません。行く店舗の案内を事前にご確認ください。</div>
+<p class="src">出典：<a href="https://bandainamco-am.co.jp/game_center/loc/kawasaki/NEWS/aikatsu-encore_Qline.html" target="_blank" rel="noopener">namcoラゾーナ川崎店</a>／<a href="https://www.inside-games.jp/article/2026/10/09/189009.html" target="_blank" rel="noopener">インサイド</a>／<a href="https://search.yahoo.co.jp/realtime/search/matome/4448c56306c943d2bbb52140df2a41c7-1792046700" target="_blank" rel="noopener">店舗公式Xの集約</a></p>
+</article>
+
+<article class="card" data-status="future">
+<div class="badges"><span class="badge b-future">2026年12月10日発売</span><span class="badge b-src">公式（BANDAI SPIRITS）</span></div>
+<h3>一番くじちょこっと アイカツ！アンコール〜めざせ☆最高のステージ！〜</h3>
+<p><strong>発売日：</strong>店頭販売 2026年12月10日(木)より順次発売予定／オンライン販売 同日17:00より販売開始予定。<strong>価格：</strong>1回550円（税込）。<strong>取扱店：</strong>一番くじONLINE、一番くじ公式ショップ。なくなり次第終了。</p>
+<p><strong>全ラインナップ（2026年11月2日に全公開）：</strong></p>
+<ul>
+<li><strong>A賞</strong> オリジナルマルチバインダー（全1種、約20cm。カード・小物収納スリーブ＋シール帳、アイカツパス風チャーム付き）</li>
+<li><strong>B賞</strong> カード★バッグチャーム①（全8種・選べる）／<strong>C賞</strong> カード★バッグチャーム②（全8種・選べる）※いずれも1弾実装カードのデザインの3連チャーム</li>
+<li><strong>D賞</strong> アイカツ！カード（限定カード）付★アイカツ！アンコール カードケース（全6種・選べる。DCDで使える限定カード付属）</li>
+<li><strong>E賞</strong> ステッカーセット（全6種・選べる、3枚セット）</li>
+<li><strong>ラストワン賞</strong> ドレスポーチ〜スターライト学園制服〜（約20cm。最後の1個を引くと入手）</li>
+<li><strong>ダブルチャンスキャンペーン：</strong>オリジナルマルチバインダー＆カード★バッグチャームのセットが抽選で30セット。期間は発売日〜2027年3月末日。</li>
+</ul>
+<p class="src">出典：<a href="https://1kuji.com/products/aikatsu8" target="_blank" rel="noopener">一番くじ倶楽部（公式）</a>／<a href="https://www.inside-games.jp/article/2026/11/02/190256.html" target="_blank" rel="noopener">インサイド（全ラインナップ報道）</a></p>
+</article>
+
+<article class="card" data-status="future">
+<div class="badges"><span class="badge b-future">関連商品</span><span class="badge b-src">公式（2026年10月30日時点の掲載分）</span></div>
+<h3>関連商品の発売日・価格一覧</h3>
+<div class="tblwrap"><table>
+<thead><tr><th>商品</th><th>発売日</th><th>価格（税込）</th><th>備考</th></tr></thead>
+<tbody>
+<tr><td><strong>アイカツ！アンコール 1ポケットカードファイル</strong></td><td data-l="発売日">2026年10月10日(土)（発売済み）</td><td data-l="価格" class="price">1,430円</td><td data-l="備考">カードファイル1冊＋アイカツパス1枚。売場は玩具売場など。</td></tr>
+<tr><td><strong>しまむら『アイカツ！』『アイカツスターズ！』グッズ</strong></td><td data-l="発売日">2026年10月31日(土)（発売済み）</td><td data-l="価格" class="price">429円〜2,189円（商品別）</td><td data-l="備考">全国のしまむら店舗。店頭販売分の一部商品に『アイカツ！アンコール』で使えるカード（全4種、商品ごとに異なる）が付属。<strong>しまむらパーク（オンライン）販売分にはカードは付属しません。</strong></td></tr>
+<tr><td><strong>ぺたしきしーるコレクション アイカツ！アンコール（1枚入り）</strong></td><td data-l="発売日">2026年11月23日(月)</td><td data-l="価格" class="price">110円</td><td data-l="備考">全25種のうち1枚入り。</td></tr>
+<tr><td><strong>アイカツフォン アンコール</strong></td><td data-l="発売日">2026年11月28日(土)</td><td data-l="価格" class="price">13,200円</td><td data-l="備考">DCDで使えるアイカツ！カード3枚付き。発売元バンダイ。</td></tr>
+<tr><td><strong>アイカツフォンキャリー</strong></td><td data-l="発売日">2026年11月28日(土)</td><td data-l="価格" class="price">2,970円</td><td data-l="備考">カード1枚付属。</td></tr>
+<tr><td><strong>アイカツ！おうえんスターライト</strong>（キュート／クール／セクシー／ポップの4種）</td><td data-l="発売日">2026年11月28日(土)</td><td data-l="価格" class="price">各1,925円</td><td data-l="備考">各種にカード付属。</td></tr>
+<tr><td><strong>Lil'Carry アイカツ！ パフュームハンド</strong></td><td data-l="発売日">2027年1月18日(月)</td><td data-l="価格" class="price">1,430円</td><td data-l="備考">オーロラキスコーデ／ゴスマジックコーデをイメージしたハンドクリーム（発売元バンダイ）。</td></tr>
+</tbody>
+</table></div>
+<p class="src">出典：<a href="https://dcd.aikatsu.com/encore/news/007.php" target="_blank" rel="noopener">公式 関連商品紹介</a>／<a href="https://www.bandai.co.jp/catalog/item.php?jan_cd=4582770134674000" target="_blank" rel="noopener">バンダイ商品ページ（カードファイル）</a>／<a href="https://www.famitsu.com/article/202610/92512" target="_blank" rel="noopener">ファミ通（しまむら価格詳細）</a>／<a href="https://toy.bandai.co.jp/ja/item/01_21043/" target="_blank" rel="noopener">バンダイ商品ページ（アイカツフォン）</a>／<a href="https://www.bandai.co.jp/catalog/item.php?jan_cd=4582770144246000" target="_blank" rel="noopener">バンダイ商品ページ（ぺたしきしーる）</a></p>
+</article>
+
+<article class="card" data-status="live">
+<div class="badges"><span class="badge b-live">通販・2次受付中（11月5日時点の一覧掲載）</span><span class="badge b-src">公式（プレミアムバンダイ）</span></div>
+<h3>アイカツ！アンコール 入学セット</h3>
+<p><strong>価格：</strong>7,260円（税込）。「アイカツ！アンコールを始めるのに最適なスペシャルなアイテム」としてプレミアムバンダイで予約販売。予約開始は2026年10月7日。早くも10月9日には<strong>2次受付（2027年3月発送分）</strong>の予約が開始されており、1次分は短期間で受付を終えたことがうかがえます（2次は11月5日時点も一覧に掲載）。</p>
+<div class="note">※商品詳細ページがアクセス拒否（403）で開けなかったため、セット内容の内訳と1次分の発送月は未確認です。</div>
+<p class="src">出典：<a href="https://p-bandai.jp/carddas/news-list-0/" target="_blank" rel="noopener">プレミアムバンダイ カードダス新着</a>／<a href="https://p-bandai.jp/carddas/a0009/b0018/" target="_blank" rel="noopener">プレミアムバンダイ 商品一覧</a></p>
+</article>
+
+<article class="card" data-status="live">
+<div class="badges"><span class="badge b-live">受付中</span><span class="badge b-src">公式通販の掲載情報</span></div>
+<h3>ゲームモデル BIGホロ缶バッジ 1弾</h3>
+<p>全11種、880円。プレミアムバンダイ「アイカツ！スタイル」で2026年10月27日13時より受付開始（プレミアムバンダイ新着一覧の検索結果で確認）。</p>
+<p class="src">出典：<a href="https://p-bandai.jp/aikatsu-style/" target="_blank" rel="noopener">プレミアムバンダイ「アイカツ！スタイル」</a></p>
+</article>
+<div class="empty" data-empty>この状態に当てはまる項目は、このタブにはありません。</div>
+</section>
+
+<!-- ============ DISTRIBUTION ============ -->
+<section class="panel" id="panel-dist">
+<div class="sec-head"><h2>配布・特典情報</h2><p>店頭無料配布／購入特典／雑誌付録／コラボ特典</p></div>
+
+<article class="card" data-status="live">
+<div class="badges"><span class="badge b-live">配布中〜第4弾は今後</span><span class="badge b-src">公式</span></div>
+<h3>「アイカツ！はじめよう プレゼントキャンペーン」（店頭無料配布）</h3>
+<p>1弾稼働開始記念。全国の対象店舗で、お店の人に<strong>「アイカツ！カードください！」と声をかける</strong>ともらえます。<strong>配布は1人1枚のみ</strong>、配布数に限りがあり<strong>なくなり次第終了</strong>、一部実施していない店舗があります。</p>
+<div class="tblwrap"><table>
+<thead><tr><th>弾</th><th>カード</th><th>配布開始日</th><th>状態（11月5日時点）</th></tr></thead>
+<tbody>
+<tr><td><strong>第1弾</strong></td><td data-l="カード"><strong>EP-002 PR レジェンダリールージュティアラ</strong>（橋本環奈さんコラボ）</td><td data-l="開始日">2026年10月8日(木)〜</td><td data-l="状態">配布中扱いだが店舗在庫は枯渇気味。ラゾーナ川崎店では年齢制限なし／小学生以下とも<strong>在庫なし（同店では終了）</strong></td></tr>
+<tr><td><strong>第2弾</strong></td><td data-l="カード">EP-001 N ピンクステージベスト＆スカート</td><td data-l="開始日">2026年10月16日(金)〜</td><td data-l="状態">同店では両区分とも<strong>在庫なし</strong></td></tr>
+<tr><td><strong>第3弾</strong></td><td data-l="カード">EP-029 R スターライト学園制服</td><td data-l="開始日">2026年10月30日(金)〜</td><td data-l="状態">同店では年齢制限なし在庫なし／小学生以下は△（残りわずか）</td></tr>
+<tr><td><strong>第4弾</strong></td><td data-l="カード">EP-030 R スターライト学園ブーツ</td><td data-l="開始日"><strong>2026年11月13日(金)〜（今後）</strong></td><td data-l="状態">未開始</td></tr>
+</tbody>
+</table></div>
+<div class="note"><strong>年齢条件の注意：</strong>公式ページの注記には「小学生以下・年齢制限なし」が併記されており、店舗の運用では<strong>「年齢制限なし」枠と「小学生以下限定」枠の2区分</strong>で在庫が管理されています（namcoラゾーナ川崎店の配布表がこの2列構成）。一部メディア・ブログが「対象は小学生以下」とだけ伝えているのは不完全で、実際は店舗・区分によって異なります。店舗ごとにどちらの枠をどう配るかの統一ルールは公式に明示されていません。</div>
+<p class="src">出典：<a href="https://dcd.aikatsu.com/encore/news/003.php" target="_blank" rel="noopener">公式 プレゼントキャンペーン</a>／<a href="https://bandainamco-am.co.jp/game_center/loc/kawasaki/NEWS/aikatsu-encore_Qline.html" target="_blank" rel="noopener">namcoラゾーナ川崎店（店舗在庫の例）</a>／<a href="https://www.famitsu.com/article/202610/90353" target="_blank" rel="noopener">ファミ通（稼働初日報道）</a></p>
+</article>
+
+<article class="card" data-status="live">
+<div class="badges"><span class="badge b-live">コラボ全体像</span><span class="badge b-src">公式</span></div>
+<h3>橋本環奈さんコラボカードの全体像</h3>
+<p>橋本環奈さんはレジェンドコラボパートナーに就任（2014年のスペシャルコラボパートナーに続く就任）。1弾のゲーム内で登場するコラボコーデは3点で揃います。</p>
+<ul>
+<li><strong>E1-51 PR レジェンダリールージュドレス</strong>：1弾の通常排出カード（プレイ／カード購入で入手）</li>
+<li><strong>E1-52 PR レジェンダリールージュパンプス</strong>：1弾の通常排出カード（プレイ／カード購入で入手）</li>
+<li><strong>EP-002 PR レジェンダリールージュティアラ</strong>：上記の<strong>店頭無料配布のみ</strong></li>
+</ul>
+<div class="note">つまり、ティアラを逃すとコーデが揃わない構造になっています。</div>
+<p class="src">出典：<a href="https://dcd.aikatsu.com/encore/news/002.php" target="_blank" rel="noopener">公式 橋本環奈コラボレーション情報</a></p>
+</article>
+
+<article class="card" data-status="live">
+<div class="badges"><span class="badge b-live">実施中</span><span class="badge b-src">公式</span></div>
+<h3>アイカツパス（学生証／セーブカード）の店頭配布</h3>
+<p>アイカツパスは店頭での配布やグッズ同梱で入手可能。店頭分が無くても、公式マイページからスマートフォンで使える<strong>デジタルアイカツパスを無料で作成</strong>できます。</p>
+<p>店舗例：namcoラゾーナ川崎店では10月8日配布分が在庫なしになった後、<strong>11月4日(水)〜再配布され在庫あり（○）</strong>となっています（同店11月4日更新表）。</p>
+<p class="src">出典：<a href="https://dcd.aikatsu.com/encore/faq/" target="_blank" rel="noopener">公式FAQ</a>／<a href="https://bandainamco-am.co.jp/game_center/loc/kawasaki/NEWS/aikatsu-encore_Qline.html" target="_blank" rel="noopener">namcoラゾーナ川崎店</a></p>
+</article>
+
+<article class="card" data-status="future">
+<div class="badges"><span class="badge b-future">今後：11月21日〜／11月28日〜</span><span class="badge b-src">公式</span></div>
+<h3>たまごっちパラダイス コラボカード購入特典</h3>
+<p><strong>特典カード：EP-042 PR たまごっちパラダイスカチューシャ</strong>（カード裏面のコードで、たまごっちパラダイス側のコラボアイテム「スタンドマイク」もアンロック可能）。デザイン違いカードは2弾でも収録予定で、この特典カードは稼働中の1弾から使用可能です。</p>
+<ul>
+<li><strong>キャンペーン第1弾：2026年11月21日(土)〜</strong>『Tamagotchi Paradise』対象デバイス購入者に先着で、コラボカード＋「たまラボステッカー」をプレゼント。各キャンペーンにつき1人1枚まで、なくなり次第終了。</li>
+<li><strong>キャンペーン第2弾：2026年11月28日(土)〜</strong>『アイカツフォン アンコール』または同キャリーとのセット購入特典としても同じカードを配布。配布は全国の玩具店など。</li>
+</ul>
+<p class="src">出典：<a href="https://dcd.aikatsu.com/encore/news/010.php" target="_blank" rel="noopener">公式NEWS 010</a>／<a href="https://tamagotchi-official.com/jp/series/paradise/news/01_1820/" target="_blank" rel="noopener">たまごっち公式</a></p>
+</article>
+
+<article class="card" data-status="live">
+<div class="badges"><span class="badge b-live">実施中・なくなり次第終了</span><span class="badge b-src">公式（バンダイナムコアミューズメント）</span></div>
+<h3>アイカツ！オフィシャルストア 購入特典</h3>
+<p>2026年10月8日〜、アイカツ！オフィシャルストア（秋葉原・京都・名古屋の3店舗）で、<strong>1会計税込2,000円購入ごとにストア限定デザインのアイカツ！カード（全3種）からランダムで1枚</strong>配布（1会計最大10枚まで）。無くなり次第配布終了です。</p>
+<p class="src">出典：<a href="https://bandainamco-am.co.jp/official_shop/aikatsu/topics/2026091803.html" target="_blank" rel="noopener">バンダイナムコアミューズメント告知</a></p>
+</article>
+
+<article class="card" data-status="live">
+<div class="badges"><span class="badge b-live">実施中〜2027年1月24日</span><span class="badge b-src">公式（プレミアムバンダイ）</span></div>
+<h3>「アイカツ！スタイル」購入特典“エメラルドコクーンコーデ”</h3>
+<p>紫吹蘭着用の“エメラルドコクーンコーデ”アイカツ！カード全3種が対象です。</p>
+<ul>
+<li><strong>プレミアムバンダイ（通常販売商品）：</strong>2026年10月1日(木)10:00〜<strong>2027年1月24日(日)23:59</strong>の期間、<strong>累計注文金額が税込6,000円達成ごとに3枚1セット</strong>を同梱。</li>
+<li><strong>バンダイナムコ Cross Store「ライフスタイルバンダイ オフィシャルショップ」横浜／博多：</strong>対象商品を1会計税込2,000円購入ごとにランダム1枚（1会計最大10枚）。</li>
+</ul>
+<p>いずれも準備数に限りがあり、なくなり次第終了です。</p>
+<p class="src">出典：<a href="https://p-bandai.jp/contents/aikatsu-card/" target="_blank" rel="noopener">プレミアムバンダイ特典案内</a>／<a href="https://dcd.aikatsu.com/encore/news/007.php" target="_blank" rel="noopener">公式 関連商品紹介</a></p>
+</article>
+
+<article class="card" data-status="end">
+<div class="badges"><span class="badge b-end">発売済み（付録）</span><span class="badge b-src">公式</span></div>
+<h3>ちゃお2026年11月号 付録カード</h3>
+<p>2026年10月2日(金)発売、790円（税込）。付録としてアイカツ！カード2枚（<strong>EP-037 N エンブレムつきセーラーマリントップス＆スカート／EP-038 N ブルーワークブーツ</strong>）が付属。小学館のプレスリリースによれば付録は紙版のみで、電子版には付きません。</p>
+<p class="src">出典：<a href="https://dcd.aikatsu.com/encore/news/006.php" target="_blank" rel="noopener">公式NEWS 006</a>／<a href="https://www.jiji.com/jc/article?k=000003894.000013640&g=prt" target="_blank" rel="noopener">小学館プレスリリース（時事ドットコム）</a></p>
+</article>
+
+<article class="card" data-status="end">
+<div class="badges"><span class="badge b-end">終了</span><span class="badge b-src">メディア（実施主体はセブン‐イレブン）</span></div>
+<h3>セブン‐イレブン「カード＋シール付きインデックス」プレゼント</h3>
+<p><strong>期間：2026年10月8日(木)10:00〜10月21日(水)（終了）</strong>。なくなり次第終了でした。</p>
+<p><strong>条件：</strong>対象のグリコのお菓子（全10商品）を<strong>一度に3個購入</strong>すると、オリジナル「アイカツ！アンコールカード／シール付きインデックス」1セット（全6種、ガーリーデビルコーデ／モンスターキャットコーデ系）をプレゼント。<strong>各店先着18セット（各種3セット）</strong>。</p>
+<div class="note">※セブン‐イレブン公式キャンペーンページでも同内容が告知されていたことを検索結果で確認しましたが、公式ページのURLが確認できなかったため、ここではメディア出典で記載しています。</div>
+<p class="src">出典：<a href="https://premium.gamepedia.jp/hobby/archives/270190" target="_blank" rel="noopener">premium.gamepedia</a></p>
+</article>
+
+<article class="card" data-status="tbd">
+<div class="badges"><span class="badge b-tbd">確認できず</span><span class="badge b-src">公式NEWS・検索範囲</span></div>
+<h3>SNSキャンペーンについて</h3>
+<p>公式X（@aikatsu_dcd）のフォロー＆リポストなどでカードがもらえるSNSプレゼントキャンペーンは、2026年11月5日時点で公式NEWS・検索範囲では<strong>確認できませんでした</strong>（公式Xは情報発信とHP更新告知が中心です）。</p>
+</article>
+<div class="empty" data-empty>この状態に当てはまる項目は、このタブにはありません。</div>
+</section>
+
+<!-- ============ SHOPS ============ -->
+<section class="panel" id="panel-shops">
+<div class="sec-head"><h2>稼働場所（広島県・山口県）</h2><p>公式「取扱店舗」検索の結果を2026年11月5日に確認した全店一覧</p></div>
+
+<div class="shopbox">
+<div class="badges"><span class="badge b-live">公式店舗検索で確認</span><span class="badge b-src">公式</span></div>
+<h3>この一覧の見方</h3>
+<p>出典は公式サイトの<a href="https://dcd.aikatsu.com/encore/shoplist/" target="_blank" rel="noopener">取扱店舗検索</a>です。「台数」は公式検索で「○台稼働中」と表示された台数、「公式の最終更新」は各台の詳細に表示される相対表示（確認日＝2026年11月5日時点の表示そのまま）です。排出カードは、山口の1店を除き全店で「1弾」と表示されていました。</p>
+<ul>
+<li><strong>広島県：13店舗・20台</strong>（広島市6店、府中町・廿日市市・呉市・東広島市・福山市が各1店、三原市2店）</li>
+<li><strong>山口県：4店舗・6台</strong>（下松市2店、防府市・山陽小野田市が各1店）</li>
+</ul>
+<div class="note"><strong>行く前に：</strong>公式は「稼働台数・弾数の情報は更新日時時点のもので現在の状態と異なる場合がある」「カード切れ・故障による停止でも過去の更新日に基づく表示の場合がある」と案内し、<strong>稼働状況についての店舗への問い合わせは控えるよう</strong>呼びかけています。最新の表示は公式検索で直接確認できます：<a href="https://dcd.aikatsu.com/encore/shoplist/list.php?pref=34" target="_blank" rel="noopener">広島県の公式検索結果</a>／<a href="https://dcd.aikatsu.com/encore/shoplist/list.php?pref=35" target="_blank" rel="noopener">山口県の公式検索結果</a>。店舗の増減や台数の変化も、見張りの確認対象に入っています。</div>
+</div>
+
+<div class="shop-tools" role="search">
+<input type="search" id="shopSearch" placeholder="店名・市町村・住所で絞り込む（例：祇園、下松、イオン）" aria-label="店舗を絞り込む">
+<button class="prefbtn" type="button" data-pref="all" aria-pressed="true">すべて（17店）</button>
+<button class="prefbtn" type="button" data-pref="hiroshima" aria-pressed="false">広島県（13店）</button>
+<button class="prefbtn" type="button" data-pref="yamaguchi" aria-pressed="false">山口県（4店）</button>
+<span class="shop-count" id="shopCount"></span>
+</div>
+
+<div class="shopbox">
+<h3>広島県（13店舗・20台）</h3>
+<div class="tblwrap"><table>
+<thead><tr><th>店舗名</th><th>住所</th><th>台数</th><th>公式の最終更新</th><th>地図</th></tr></thead>
+<tbody>
+<tr data-shop data-pref="hiroshima"><td><strong>namcoイオンモール広島府中店</strong></td><td data-l="住所">広島県安芸郡府中町大須2-1-1 イオンモール広島府中3F</td><td data-l="台数">2台稼働中</td><td data-l="最終更新">1日前（全台・1弾）</td><td data-l="地図"><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=namco%E3%82%A4%E3%82%AA%E3%83%B3%E3%83%A2%E3%83%BC%E3%83%AB%E5%BA%83%E5%B3%B6%E5%BA%9C%E4%B8%AD%E5%BA%97" target="_blank" rel="noopener">Googleマップ</a></td></tr>
+<tr data-shop data-pref="hiroshima"><td><strong>namco広島紙屋町店</strong></td><td data-l="住所">広島県広島市中区大手町2丁目3-3 大手町ナルミヤビル1F</td><td data-l="台数">1台稼働中</td><td data-l="最終更新">2日前（1弾）</td><td data-l="地図"><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=namco%E5%BA%83%E5%B3%B6%E7%B4%99%E5%B1%8B%E7%94%BA%E5%BA%97" target="_blank" rel="noopener">Googleマップ</a></td></tr>
+<tr data-shop data-pref="hiroshima"><td><strong>タイトーステーション広島本通店</strong></td><td data-l="住所">広島県広島市中区本通3-5 せらかぐビル</td><td data-l="台数">1台稼働中</td><td data-l="最終更新">1日前（1弾）</td><td data-l="地図"><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=%E3%82%BF%E3%82%A4%E3%83%88%E3%83%BC%E3%82%B9%E3%83%86%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E5%BA%83%E5%B3%B6%E6%9C%AC%E9%80%9A%E5%BA%97" target="_blank" rel="noopener">Googleマップ</a></td></tr>
+<tr data-shop data-pref="hiroshima"><td><strong>モーリーファンタジーf 広島祇園店</strong></td><td data-l="住所">広島県広島市安佐南区祇園3丁目2-1 イオン広島祇園ショッピングセンター3階</td><td data-l="台数">2台稼働中</td><td data-l="最終更新">1日前（全台・1弾）</td><td data-l="地図"><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=%E3%83%A2%E3%83%BC%E3%83%AA%E3%83%BC%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BCf%20%E5%BA%83%E5%B3%B6%E7%A5%87%E5%9C%92%E5%BA%97" target="_blank" rel="noopener">Googleマップ</a></td></tr>
+<tr data-shop data-pref="hiroshima"><td><strong>モーリーファンタジー広島祇園店</strong></td><td data-l="住所">広島県広島市安佐南区祇園3丁目2-1 イオンモール広島祇園3階</td><td data-l="台数">2台稼働中</td><td data-l="最終更新">1日前（全台・1弾）</td><td data-l="地図"><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=%E3%83%A2%E3%83%BC%E3%83%AA%E3%83%BC%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BC%E5%BA%83%E5%B3%B6%E7%A5%87%E5%9C%92%E5%BA%97" target="_blank" rel="noopener">Googleマップ</a></td></tr>
+<tr data-shop data-pref="hiroshima"><td><strong>モーリーファンタジーアルパーク店</strong></td><td data-l="住所">広島県広島市西区井口明神一丁目16番1号 アルパーク西棟4階</td><td data-l="台数">1台稼働中</td><td data-l="最終更新">2日前（1弾）</td><td data-l="地図"><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=%E3%83%A2%E3%83%BC%E3%83%AA%E3%83%BC%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BC%E3%82%A2%E3%83%AB%E3%83%91%E3%83%BC%E3%82%AF%E5%BA%97" target="_blank" rel="noopener">Googleマップ</a></td></tr>
+<tr data-shop data-pref="hiroshima"><td><strong>モーリーファンタジー楽々園店</strong></td><td data-l="住所">広島県広島市佐伯区楽々園4-14-25 イオンタウン楽々園2階</td><td data-l="台数">1台稼働中</td><td data-l="最終更新">1日前（1弾）</td><td data-l="地図"><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=%E3%83%A2%E3%83%BC%E3%83%AA%E3%83%BC%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BC%E6%A5%BD%E3%80%85%E5%9C%92%E5%BA%97" target="_blank" rel="noopener">Googleマップ</a></td></tr>
+<tr data-shop data-pref="hiroshima"><td><strong>namcoゆめタウン廿日市店</strong></td><td data-l="住所">広島県廿日市市下平良2-2-1 ゆめタウン廿日市3F</td><td data-l="台数">2台稼働中</td><td data-l="最終更新">1日前（全台・1弾）</td><td data-l="地図"><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=namco%E3%82%86%E3%82%81%E3%82%BF%E3%82%A6%E3%83%B3%E5%BB%BF%E6%97%A5%E5%B8%82%E5%BA%97" target="_blank" rel="noopener">Googleマップ</a></td></tr>
+<tr data-shop data-pref="hiroshima"><td><strong>ふぇすたらんど広店</strong></td><td data-l="住所">広島県呉市広本町2-17-1 イオン広店4F</td><td data-l="台数">1台稼働中</td><td data-l="最終更新">2日前（1弾）</td><td data-l="地図"><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=%E3%81%B5%E3%81%87%E3%81%99%E3%81%9F%E3%82%89%E3%82%93%E3%81%A9%E5%BA%83%E5%BA%97" target="_blank" rel="noopener">Googleマップ</a></td></tr>
+<tr data-shop data-pref="hiroshima"><td><strong>namcoフジグラン東広島店</strong></td><td data-l="住所">広島県東広島市西条町御薗宇4405 フジグラン東広島店内</td><td data-l="台数">2台稼働中</td><td data-l="最終更新">1日前（全台・1弾）</td><td data-l="地図"><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=namco%E3%83%95%E3%82%B8%E3%82%B0%E3%83%A9%E3%83%B3%E6%9D%B1%E5%BA%83%E5%B3%B6%E5%BA%97" target="_blank" rel="noopener">Googleマップ</a></td></tr>
+<tr data-shop data-pref="hiroshima"><td><strong>namcoフジグラン三原店</strong></td><td data-l="住所">広島県三原市円一町1-1-7 フジグラン三原</td><td data-l="台数">2台稼働中</td><td data-l="最終更新">1日前（全台・1弾）</td><td data-l="地図"><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=namco%E3%83%95%E3%82%B8%E3%82%B0%E3%83%A9%E3%83%B3%E4%B8%89%E5%8E%9F%E5%BA%97" target="_blank" rel="noopener">Googleマップ</a></td></tr>
+<tr data-shop data-pref="hiroshima"><td><strong>モーリーファンタジー三原店</strong></td><td data-l="住所">広島県三原市城町2-13-1 イオン三原2階</td><td data-l="台数">1台稼働中</td><td data-l="最終更新">2日前（1弾）</td><td data-l="地図"><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=%E3%83%A2%E3%83%BC%E3%83%AA%E3%83%BC%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BC%E4%B8%89%E5%8E%9F%E5%BA%97" target="_blank" rel="noopener">Googleマップ</a></td></tr>
+<tr data-shop data-pref="hiroshima"><td><strong>タイトーステーションフジグラン神辺店</strong></td><td data-l="住所">広島県福山市神辺町新道上字2-10-26 フジグラン神辺3階</td><td data-l="台数">2台稼働中</td><td data-l="最終更新">9時間前（全台・1弾）</td><td data-l="地図"><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=%E3%82%BF%E3%82%A4%E3%83%88%E3%83%BC%E3%82%B9%E3%83%86%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%83%95%E3%82%B8%E3%82%B0%E3%83%A9%E3%83%B3%E7%A5%9E%E8%BE%BA%E5%BA%97" target="_blank" rel="noopener">Googleマップ</a></td></tr>
+</tbody>
+</table></div>
+<p>※広島祇園は同じ住所（祇園3丁目2-1）に「モーリーファンタジーf 広島祇園店」と「モーリーファンタジー広島祇園店」が公式検索で別々に掲載されており、合計4台と表示されています。施設内の別フロア・別区画の可能性があり、現地の案内でご確認ください。</p>
+<p class="src">出典：<a href="https://dcd.aikatsu.com/encore/shoplist/list.php?pref=34" target="_blank" rel="noopener">公式 取扱店舗検索（広島県・1ページ目）</a>／<a href="https://dcd.aikatsu.com/encore/shoplist/list.php?pref=34&amp;p=2" target="_blank" rel="noopener">同・2ページ目</a>（2026年11月5日確認）</p>
+</div>
+
+<div class="shopbox">
+<h3>山口県（4店舗・6台）</h3>
+<div class="tblwrap"><table>
+<thead><tr><th>店舗名</th><th>住所</th><th>台数</th><th>公式の最終更新</th><th>地図</th></tr></thead>
+<tbody>
+<tr data-shop data-pref="yamaguchi"><td><strong>ふぇすたらんど下松店</strong></td><td data-l="住所">山口県下松市南花岡6-8-1 サンリブ下松2階</td><td data-l="台数">1台稼働中</td><td data-l="最終更新">1日前（1弾）</td><td data-l="地図"><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=%E3%81%B5%E3%81%87%E3%81%99%E3%81%9F%E3%82%89%E3%82%93%E3%81%A9%E4%B8%8B%E6%9D%BE%E5%BA%97" target="_blank" rel="noopener">Googleマップ</a></td></tr>
+<tr data-shop data-pref="yamaguchi"><td><strong>アミュージアム周南店</strong></td><td data-l="住所">山口県下松市中央町21-3 ゆめタウン下松3階</td><td data-l="台数">1台稼働中</td><td data-l="最終更新">1日前（1弾）</td><td data-l="地図"><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=%E3%82%A2%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%B8%E3%82%A2%E3%83%A0%E5%91%A8%E5%8D%97%E5%BA%97" target="_blank" rel="noopener">Googleマップ</a></td></tr>
+<tr data-shop data-pref="yamaguchi"><td><strong>SOYU Family Game Field 防府店</strong></td><td data-l="住所">山口県防府市鐘紡町7-1 イオンタウン防府1階</td><td data-l="台数">2台稼働中</td><td data-l="最終更新">2日前（全台・1弾）</td><td data-l="地図"><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=SOYU%20Family%20Game%20Field%20%E9%98%B2%E5%BA%9C%E5%BA%97" target="_blank" rel="noopener">Googleマップ</a></td></tr>
+<tr data-shop data-pref="yamaguchi"><td><strong>namcoおのだサンパーク店</strong></td><td data-l="住所">山口県山陽小野田市中川6-4-1 おのだサンパーク2F</td><td data-l="台数">2台稼働中</td><td data-l="最終更新">2日前（排出カードは公式詳細で表示なし）</td><td data-l="地図"><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=namco%E3%81%8A%E3%81%AE%E3%81%A0%E3%82%B5%E3%83%B3%E3%83%91%E3%83%BC%E3%82%AF%E5%BA%97" target="_blank" rel="noopener">Googleマップ</a></td></tr>
+</tbody>
+</table></div>
+<p>※店名は「周南店」ですが、公式検索に載っている住所は下松市（ゆめタウン下松内）です。表記どおりに掲載しています。</p>
+<p>※namcoおのだサンパーク店は、公式詳細で2台とも「排出されるカード」が「-（表示なし）」となっていました。他店のような「1弾」表示ではないため、そのまま記載しています（通信状況により弾数が正常に反映されない場合がある、と公式が案内しています）。</p>
+<p class="src">出典：<a href="https://dcd.aikatsu.com/encore/shoplist/list.php?pref=35" target="_blank" rel="noopener">公式 取扱店舗検索（山口県）</a>（2026年11月5日確認）</p>
+</div>
+<div class="empty" id="shopEmpty">条件に当てはまる店舗はありません。言葉を変えて試してください。</div>
+</section>
+
+<!-- upcoming strip -->
+<div class="sec-head"><h2>これからの予定カレンダー</h2><p>2026年11月5日時点で公式に日付が示されているもの</p></div>
+<div class="cal">
+<div class="calitem"><div class="d">11月13日(金)</div><div class="t">プレゼントキャンペーン第4弾開始（EP-030 スターライト学園ブーツ）</div></div>
+<div class="calitem"><div class="d">11月21日(土)</div><div class="t">たまごっちコラボ特典 第1弾開始（対象デバイス購入者・先着）</div></div>
+<div class="calitem"><div class="d">11月23日(月)</div><div class="t">ぺたしきしーるコレクション発売（110円）</div></div>
+<div class="calitem"><div class="d">11月28日(土)</div><div class="t">アイカツフォン アンコール／キャリー／おうえんスターライト発売、たまごっちコラボ特典 第2弾開始</div></div>
+<div class="calitem"><div class="d">12月10日(木)</div><div class="t">一番くじちょこっと発売（1回550円、オンラインは17:00〜）</div></div>
+<div class="calitem"><div class="d">2027年1月18日(月)</div><div class="t">Lil'Carry パフュームハンド発売（1,430円）</div></div>
+<div class="calitem"><div class="d">2027年1月24日(日)</div><div class="t">アイカツ！スタイル購入特典期間の終了（23:59まで）</div></div>
+<div class="calitem"><div class="d">2027年3月</div><div class="t">入学セット2次受付分の発送／一番くじダブルチャンス期間は3月末日まで</div></div>
+</div>
+
+<div class="unknown">
+<h3>まだ公式に分かっていないこと（未確認事項）</h3>
+<ul>
+<li>「きかんげんていライブ！」の<strong>新しい開催日程</strong>：公式1弾特集が「未定」としたまま、11月5日時点で続報なし。実際にモードが稼働しているか否かも公式文面からは断定できません。</li>
+<li><strong>第2弾の稼働開始日・収録内容</strong>：11月2日発表は「稼働決定＋詳細は後日公開」のみです。</li>
+<li><strong>カード在庫の全国的な解消時期</strong>：公式は追加出荷・増産中（10月9日）と追加生産継続（11月2日公式X）までで、具体的な再入荷日・解消見通しは未発表です。</li>
+<li><strong>入学セットの内容内訳と1次分の発送月</strong>：プレミアムバンダイの商品詳細ページがアクセス拒否（403）となり開けませんでした。価格7,260円、予約開始日（1次：10月7日／2次・2027年3月発送分：10月9日）は公式通販の一覧・新着情報で確認済みです。</li>
+<li>セブン‐イレブンキャンペーンの<strong>公式ページURL</strong>：本文（期間・条件）は検索結果で確認できましたが、URLが残らなかったためメディア出典で記載しています。</li>
+</ul>
+</div>
+
+<div class="disclaimer" role="note">
+<h2>このページについて（注意書き）</h2>
+<p><strong>このページは、株式会社バンダイをはじめとする公式とは関係のない、個人による非公式のまとめです。</strong>公式サイト・公式発表の代わりになるものではありません。</p>
+<ul>
+<li>『アイカツ！』『アイカツ！アンコール』および関連する作品名・商品名・カード名などの権利は、株式会社バンダイおよび各権利者に帰属します。</li>
+<li>掲載内容は、公開されている公式情報などをもとに、日程・価格・配布条件・店舗情報といった事実を個人が自分の言葉で整理したものです。公式の文章をそのまま長く転載することはせず、公式の画像・カードの絵柄・ロゴ・写真も使用していません。各項目には出典へのリンクを付けています。</li>
+<li>営利を目的としたページではありません。</li>
+<li>情報は調査時点のもので、その後変更・終了している場合があります。実際に店舗へ行く前や購入・参加の前には、必ず<a href="https://dcd.aikatsu.com/encore/" target="_blank" rel="noopener">公式サイト</a>と各店舗の案内で最新の内容をご確認ください。このページの情報をもとにした行動で生じた結果については、責任を負いかねます。</li>
+<li>内容について権利者から修正・削除の求めがあった場合は、速やかに対応します。</li>
+</ul>
+</div>
+
+<footer>
+<h2>主な出典（2026年11月5日閲覧）</h2>
+<ul>
+<li>公式サイト／NEWS一覧：<a href="https://dcd.aikatsu.com/encore/" target="_blank" rel="noopener">dcd.aikatsu.com/encore</a>／<a href="https://dcd.aikatsu.com/encore/news/" target="_blank" rel="noopener">NEWS一覧</a></li>
+<li>バンダイ プレスリリース（PR TIMES、2026年10月8日）：<a href="https://prtimes.jp/main/html/rd/p/000000208.000035829.html" target="_blank" rel="noopener">prtimes.jp</a></li>
+<li>一番くじ倶楽部（BANDAI SPIRITS公式）：<a href="https://1kuji.com/products/aikatsu8" target="_blank" rel="noopener">1kuji.com/products/aikatsu8</a></li>
+<li>namcoラゾーナ川崎店（待機列・配布在庫・追加購入上限、2026年11月4日更新）：<a href="https://bandainamco-am.co.jp/game_center/loc/kawasaki/NEWS/aikatsu-encore_Qline.html" target="_blank" rel="noopener">店舗ページ</a></li>
+<li>公式 取扱店舗検索（稼働場所、2026年11月5日確認）：<a href="https://dcd.aikatsu.com/encore/shoplist/list.php?pref=34" target="_blank" rel="noopener">広島県</a>／<a href="https://dcd.aikatsu.com/encore/shoplist/list.php?pref=35" target="_blank" rel="noopener">山口県</a></li>
+<li>メディア：<a href="https://www.inside-games.jp/article/2026/10/09/189009.html" target="_blank" rel="noopener">インサイド（カード切れ）</a>／<a href="https://www.famitsu.com/article/202610/90353" target="_blank" rel="noopener">ファミ通（稼働開始）</a>／<a href="https://premium.gamepedia.jp/hobby/archives/270190" target="_blank" rel="noopener">premium.gamepedia（セブン‐イレブン）</a></li>
+</ul>
+<p>このページは2026年11月5日時点の調査結果をまとめたものです。稼働場所（広島・山口）は同日に公式「取扱店舗」検索で確認した内容で、台数・最終更新の表示もその時点のものです。最新の開催状況・在庫・稼働台数は公式サイトと各店舗の案内でご確認ください。「SNS」区分の店舗情報は店舗公式Xなどの集約レベルで、全国一律の公式発表ではありません。</p>
+</footer>
+</div>
+
+<script>
+(function(){
+var tabs=document.querySelectorAll('.tabbtn');
+var panels={events:document.getElementById('panel-events'),sales:document.getElementById('panel-sales'),dist:document.getElementById('panel-dist'),shops:document.getElementById('panel-shops')};
+var currentFilter='all';
+function applyFilter(){
+Object.keys(panels).forEach(function(k){
+var p=panels[k]; if(!p) return;
+var visible=0;
+p.querySelectorAll('.card').forEach(function(c){
+var show = currentFilter==='all' || c.getAttribute('data-status')===currentFilter;
+c.classList.toggle('hidden-by-filter',!show);
+if(show) visible++;
+});
+var empty=p.querySelector('[data-empty]');
+if(empty) empty.classList.toggle('show', visible===0);
+});
+}
+tabs.forEach(function(b){
+b.addEventListener('click',function(){
+tabs.forEach(function(x){x.setAttribute('aria-selected','false')});
+b.setAttribute('aria-selected','true');
+Object.keys(panels).forEach(function(k){panels[k].classList.toggle('active',k===b.getAttribute('data-tab'))});
+applyFilter();
+});
+});
+document.querySelectorAll('.fbtn').forEach(function(b){
+b.addEventListener('click',function(){
+document.querySelectorAll('.fbtn').forEach(function(x){x.setAttribute('aria-pressed','false')});
+b.setAttribute('aria-pressed','true');
+currentFilter=b.getAttribute('data-filter');
+applyFilter();
+});
+});
+/* shops search */
+var shopRows=document.querySelectorAll('[data-shop]');
+var shopSearch=document.getElementById('shopSearch');
+var shopCount=document.getElementById('shopCount');
+var shopEmpty=document.getElementById('shopEmpty');
+var currentPref='all';
+function applyShopFilter(){
+var q=shopSearch?shopSearch.value.trim():'';
+var shown=0;
+shopRows.forEach(function(r){
+var okPref=(currentPref==='all'||r.getAttribute('data-pref')===currentPref);
+var okQ=(!q||r.textContent.indexOf(q)!==-1);
+var show=okPref&&okQ;
+r.classList.toggle('shop-hidden',!show);
+if(show) shown++;
+});
+if(shopCount) shopCount.textContent='表示中：'+shown+'店';
+if(shopEmpty) shopEmpty.classList.toggle('show',shown===0);
+}
+document.querySelectorAll('.prefbtn').forEach(function(b){
+b.addEventListener('click',function(){
+document.querySelectorAll('.prefbtn').forEach(function(x){x.setAttribute('aria-pressed','false')});
+b.setAttribute('aria-pressed','true');
+currentPref=b.getAttribute('data-pref');
+applyShopFilter();
+});
+});
+if(shopSearch) shopSearch.addEventListener('input',applyShopFilter);
+applyShopFilter();
+})();
+</script>
+</body>
+</html>
