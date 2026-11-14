@@ -127,11 +127,24 @@ footer h2{font-size:15px;color:var(--ink);margin-bottom:8px}
 footer ul{padding-left:18px;margin:0}
 footer li{margin:3px 0}
 /* monitor + shops */
-.monitor{margin:18px 0 0;background:var(--surface);border:1.5px solid var(--teal);border-radius:14px;padding:16px 18px;box-shadow:var(--shadow)}
-.monitor h2{font-size:17px;color:var(--teal);margin-bottom:8px}
+.monitor{margin:18px 0 0;background:var(--surface);border:1.5px solid var(--teal);border-radius:14px;box-shadow:var(--shadow);overflow:hidden}
+.monitor summary{cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px;-webkit-tap-highlight-color:transparent}
+.monitor summary::-webkit-details-marker{display:none}
+.monitor summary::marker{content:""}
+.monitor summary:focus-visible{outline:2px solid var(--teal);outline-offset:-2px}
+.monitor-title{font-family:"M PLUS Rounded 1c","Noto Sans JP",sans-serif;font-size:17px;font-weight:800;color:var(--teal);line-height:1.4}
+.monitor-toggle{flex:0 0 auto;display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;color:var(--teal);border:1px solid var(--teal);border-radius:999px;padding:3px 12px;white-space:nowrap}
+.monitor-toggle .arrow{display:inline-block;transition:transform .2s ease;font-size:11px;line-height:1}
+.monitor[open ] .monitor-toggle .arrow{transform:rotate(180deg)}
+.monitor-toggle .label-close{display:none}
+.monitor[open ] .monitor-toggle .label-open{display:none}
+.monitor[open ] .monitor-toggle .label-close{display:inline}
+.monitor-body{padding:2px 18px 16px;border-top:1px solid var(--line)}
 .monitor p{margin:6px 0;font-size:14px}
 .monitor ul{margin:6px 0;padding-left:20px;font-size:14px}
 .monitor li{margin:4px 0}
+@media print{.monitor-body{display:block!important}}
+@media (prefers-reduced-motion:reduce){.monitor-toggle .arrow{transition:none}}
 .shopbox{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;margin:14px 0;box-shadow:var(--shadow)}
 .shopbox h3{font-size:17.5px;font-weight:800;margin:6px 0 8px}
 .shopbox p{margin:6px 0}
@@ -193,8 +206,9 @@ td .maplink{font-size:12.5px;font-weight:700;white-space:nowrap}
 <div class="fact"><div class="k">稼働場所（公式店舗検索・広島県は2026年11月14日9:20ごろ、山口県は2026年11月13日22:50ごろ確認）</div><div class="v">広島28店・山口13店</div><div class="n">合計41店舗・56台が「稼働中」表示。下の「稼働場所」タブに全店掲載</div></div>
 </div>
 
-<div class="monitor" role="note">
-<h2>🔍 監視と更新について（ご質問への回答）</h2>
+<details class="monitor">
+<summary aria-label="監視と更新についての説明を開く・閉じる"><span class="monitor-title">🔍 監視と更新について（ご質問への回答）</span><span class="monitor-toggle" aria-hidden="true"><span class="label-open">開く</span><span class="label-close">閉じる</span><span class="arrow">▼</span></span></summary>
+<div class="monitor-body">
 <p><strong>見張りはできます。</strong>公式サイトのNEWSと、公式「取扱店舗」検索の広島県・山口県の結果を定期的に確認し、変化があったらこのページの内容を差し替えてお知らせします。何も変わっていないときは静かにしています。</p>
 <ul>
 <li><strong>今回の確認（2026年11月5日）：</strong>公式NEWSの最新は11月2日分（2弾稼働決定／たまごっちコラボ／プロモーションカード更新）のままで、11月3日以降の新しい発表はありませんでした。「きかんげんていライブ！」の新日程や在庫解消の発表も、まだ出ていません。</li>
@@ -246,6 +260,7 @@ td .maplink{font-size:12.5px;font-weight:700;white-space:nowrap}
 <li><strong>正直な注意点：</strong>このページ自体は開いた瞬間に自動で書き換わる仕組みではなく、確認のたびに中身を差し替える形です。そのため、店舗へ行く直前の一番新しい稼働台数は、タブ内の公式店舗検索へのリンクでその場で確認できます（公式も「台数・弾数は更新時点のもので、カード切れや故障で止まっていても過去の表示のままの場合がある」と注意しています）。</li>
 </ul>
 </div>
+</details>
 
 <div class="tabs">
 <div class="tabrow" role="tablist" aria-label="分野">
